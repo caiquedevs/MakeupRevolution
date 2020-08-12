@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+import React from 'react';
 import { RiSearchEyeLine } from 'react-icons/ri';
 import { Section } from './styled';
-import {debounce} from 'throttle-debounce';
 
-export default function Search({ disabled, items, setItems }) {
+export default function Search({ disabled, setItems, copyItems }) {
 
    function handleChangeInput(e) {
-      const responseSearch = items.filter(item => {
-         return item.name.includes(e.target.value)
-      })
-
-      console.log(responseSearch)
+      const responseSearch = copyItems.filter(item => {
+         return item.name.toUpperCase().includes(e.target.value.toUpperCase())
+      });
+      setItems(responseSearch)
    }
 
    return (
       <Section>
-      {console.log('total', items)}
          <label htmlFor="search">
             <input
                type="search"

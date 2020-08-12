@@ -27,7 +27,7 @@ module.exports = {
     'react-hooks'
   ],
   rules: {
-
+      'eslintno-console': 0,
       'jsx-a11y/control-has-associated-label': 0,
       'react-hooks/exhaustive-deps': 0,
       'eqeqeq': 0,

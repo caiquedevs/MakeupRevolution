@@ -10,6 +10,8 @@ import LoadingProducts from '../../components/LoadingProducts';
 
 export default function Category({ match: { params: { idcategory } } }) {
    const [data, setData] = useState([]);
+   const [copyData, setCopyData] = useState([]);
+
    const history = useHistory();
 
    useEffect(() => {
@@ -18,7 +20,12 @@ export default function Category({ match: { params: { idcategory } } }) {
       async function getData(){
          document.title = `Makeup Revolution - ${idcategory}`;
          await api.get(`/${idcategory}`)
-         .then(response =>  { if (!didCancel) { setData(response.data) }} )
+         .then(response => {
+            if (!didCancel) {
+               setData(response.data)
+               setCopyData(response.data);
+            }
+         })
          .catch(() => history.push('/Page404'))
       }
 
@@ -27,14 +34,14 @@ export default function Category({ match: { params: { idcategory } } }) {
 
    },[history, idcategory])
 
-   if(data.length > 0){
+   if(data.length > 0 || data.length === 0){
       return (
          <main>
             <HeaderPage
                handleClickArrow={() => history.push('/')}
                title={idcategory.replace("_"," ")}
             />
-            <Search items={data} setItems={setData}/>
+            <Search setItems={setData} copyItems={copyData}/>
             <Products data={data} idcategory={idcategory} />
          </main>
       )
