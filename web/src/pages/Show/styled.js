@@ -111,14 +111,6 @@ export const Section = styled.section`
       }
    }
 
-   @media screen and (min-width: 992px){
-
-   }
-
-   @media screen and (min-width: 768px) and (max-width: 991px){
-
-   }
-
    @media screen and (min-width: 576px) and (max-width: 767px){
       div#box{
          flex-direction: column;
@@ -126,10 +118,28 @@ export const Section = styled.section`
       }
    }
 
-   @media screen and (min-width: 0px) and (max-width: 575px){
+   @media screen and (min-width: 0px) and (max-width: 575px) {
       div#box{
          flex-direction: column;
          align-items: center;
+
+         div#information {
+            padding: 25px;
+
+            span{ margin: 5px 0}
+            div.title {
+               flex-direction: column;
+               align-items: flex-start;
+
+               span:nth-child(1){
+                  max-width: 100%;
+                  font-size: 18px;
+               }
+               span:nth-child(2){
+
+               }
+            }
+         }
       }
    }
 `;

@@ -55,6 +55,10 @@ export const InfoBar = styled.ul`
 export const ProductList = styled.ul`
    width: 100%;
 
+   li#emptyProducts {
+      display: ${props => props.data === 0 ? 'flex' : 'none'}
+   }
+
    li {
       width: 100%;
       padding: 25px 90px 25px 35px;

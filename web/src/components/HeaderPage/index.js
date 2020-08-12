@@ -9,7 +9,7 @@ import Cart from '../Cart';
 export default function HeaderPage({ title, handleClickArrow }){
    return(
       <Header title={title}>
-         <nav>
+         <nav id="MenuHorozintal">
             <RiArrowLeftSLine color="#2F3640" size="26px" onClick={() => handleClickArrow()} />
             <h1>{title}</h1>
             <Cart />

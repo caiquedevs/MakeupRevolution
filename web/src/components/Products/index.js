@@ -13,17 +13,13 @@ export default function Products({ data, idcategory }){
             <li>Preço</li>
          </InfoBar>
 
-         <ProductList>
+         <ProductList data={data.length}>
             {data.map( product =>(
                <li key={product.id}>
                   <div>
                      <figure>
                         <Link to={`/products/${idcategory}/${product.id}`}>
-                           <img
-                              id={product.id}
-                              src={product.image_link}
-                              alt="imageProduct"
-                           />
+                           <img id={product.id} src={product.image_link} alt="imageProduct"/>
                         </Link>
 
                         <figcaption>
@@ -44,10 +40,13 @@ export default function Products({ data, idcategory }){
                         />
                      ))}
                   </div>
-
-                  <div>{Number(product.price) ? `$ ${Number(product.price)}` : ''}</div>
+                  <div>{`$ ${Number(product.price)}`}</div>
                </li>
             ))}
+
+            <li id="emptyProducts">
+               <span>Nenhum produto encontrado</span>
+            </li>
          </ProductList>
       </Section>
    );

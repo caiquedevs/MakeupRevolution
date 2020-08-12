@@ -22,7 +22,6 @@ export default function CartComponent() {
                size="26px"
             />
          </button>
-
          <div id="cartBody">
             {allItemsCart && allItemsCart.map((item, index) => (
                <CartItem item={allItemsCart.length} key={index}>

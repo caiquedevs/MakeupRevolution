@@ -34,8 +34,8 @@ export default function Compnt({ match: { params: { id } } }) {
 
    },[history, id])
 
-   const handleClickCart = (id, brand, name, price, image_link) => {
-      dispatch(actionsCart.addCart({ id, brand, name, price, image_link }))
+   const handleClickCart = (idProduct, brand, name, price, image_link) => {
+      dispatch(actionsCart.addCart({ id: idProduct, brand, name, price, image_link }))
    }
 
    if(data){

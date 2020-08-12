@@ -9,7 +9,7 @@ import Products from '../../components/Products';
 import LoadingProducts from '../../components/LoadingProducts';
 
 export default function Category({ match: { params: { idcategory } } }) {
-   const [data, setData] = useState([]);
+   const [data, setData] = useState(false);
    const [copyData, setCopyData] = useState([]);
 
    const history = useHistory();

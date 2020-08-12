@@ -1,125 +1,106 @@
 import styled from 'styled-components';
 
-export const MenuArea = styled.div`
-   width: auto;
-   height: auto;
+export const ButtonMenu = styled.button`
+   width: 35px;
+   height: 35px;
 
-   position: absolute;
-   top : 15px;
-   right: 0px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
 
-   button{
-      width: 35px;
-      height: 35px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      background: transparent;
-      border: none;
-      z-index: 9999;
+   background: transparent;
+   border: none;
+   z-index: 9999;
 
-      div#linhax{
-         width: 27px;
-         height: 4px;
-         position: relative;
-         transform: ${props => props.hamburguer ? "rotate(45deg)" : "rotate(0deg)"};
-         bottom: ${props => props.hamburguer ? "-4px" : "4px"};
-         background-color: ${props => props.hamburguer ? "#ffffff" : "#292929"};
-         transition: 0.2s;
-      }
-
-      div#linha{
-         width: 27px;
-         height: 4px;
-         visibility: ${props => props.hamburguer ? "hidden" : "visible"};
-         background-color: #292929;
-      }
-
-      div#linhay{
-         width: 27px;
-         height: 4px;
-         position: relative;
-         transform: ${props => props.hamburguer ? "rotate(-45deg)" : "rotate(0deg)"};
-         top: ${props => props.hamburguer ? "-4px" : "4px"};
-         background-color: ${props => props.hamburguer ? "#ffffff" : "#292929"};
-         transition: 0.2s;
-      }
+   div.row{
+      width: 27px;
+      height: 4px;
    }
 
-   nav#menu-hamburguer{
-      visibility: ${props => props.hamburguer ? "visible" : "hidden"};
-      width: ${props => props.hamburguer ? "395px" : "0"};
-      height: 100vh;
-      padding: 0 30px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      flex-direction: column;
+   div#rowCenter{
+      visibility: ${props => props.isActive ? "hidden" : "visible"};
       background-color: #292929;
-      color: #fff;
-      position: fixed;
-      top: 0;
-      right: 0;
-      transition: 0.3s;
-      z-index: 1;
+   }
 
-      h1{
-         visibility: ${props => props.hamburguer ? "visible" : "hidden"};
+   div#rowX {
+      bottom: ${props => props.isActive ? "-4px" : "4px"};
+      background-color: ${props => props.isActive ? "#ffffff" : "#292929"};
+      transform: ${props => props.isActive ? "rotate(45deg)" : "rotate(0deg)"};
+      transition: 0.2s ease-in;
+   }
+
+   div#rowY{
+      top: ${props => props.isActive ? "-4px" : "4px"};
+      background-color: ${props => props.isActive ? "#ffffff" : "#292929"};
+      transform: ${props => props.isActive ? "rotate(-45deg)" : "rotate(0deg)"};
+      transition: 0.2s ease-in;
+   }
+
+   @media screen and (min-width: 992px){
+      display: none;
+   }
+`;
+
+export const Menu = styled.nav`
+   width: ${props => props.isActive? '350px' : '0' };
+   opacity: ${props => props.isActive? '1' : '0' };
+   height: 100vh;
+   padding: 24px 0;
+   overflow: hidden;
+
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   flex-direction: column;
+
+   position: absolute;
+   top : 0px;
+   right: -30px;
+   background: #292929;
+   transition: 0.2s ease-in;
+   z-index: 1;
+
+   h1 {
+      color: #ffffff;
+   }
+
+   ul{
+      width: 100%;
+      display: flex;
+      padding: 0 30px;
+
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      li {
          width: 100%;
-         height: 70px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         color: #ffffff;
-      }
+         padding: 15px 0;
+         border-bottom: 1px solid rgb(62 62 62 / 50%);
 
-      ul{
-         visibility: ${props => props.hamburguer ? "visible" : "hidden"};
-         transition: 0.1s;
-         width: 100%;
-         height: auto;
-         display: flex;
-         align-items: flex-start;
-         justify-content: flex-start;
-         flex-direction: column;
+         a {
+            font-size: 20px;
+            font-size: 20px;
+            color: aliceblue;
+            text-transform: capitalize;
 
-         a{
-            display: block;
-            padding: 12px 0;
-            color: #ffffff
-         }
-
-         li{
-            width: 100%;
-            height: auto;
-            color: #ffffff;
-            color: #ffffff;
-            display: block;
-
-            :hover{
-               background: rgba(0, 0, 0, 0.2);
-               transition-delay: 0.1s;
-               transition-duration: 0.1s;
+            :hover {
+               color: pink;
             }
          }
       }
    }
 
-   @media screen and (min-width: 992px){
-      display: none;
-      button{ cursor: pointer; }
-      nav#menu-hamburguer ul li{ cursor: pointer; }
-   }
+   @media screen and (min-width: 992px){}
 
    @media screen and (min-width: 768px) and (max-width: 991px){}
 
    @media screen and (min-width: 576px) and (max-width: 767px){}
 
    @media screen and (min-width: 0px) and (max-width: 575px){
-      nav#menu-hamburguer{
-         width: ${props => props.hamburguer ? "100%" : "0"};
-      }
+      width: ${props => props.isActive? '100vw' : '0' };
+
    }
 
 `;

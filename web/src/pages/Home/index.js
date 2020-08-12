@@ -11,7 +11,7 @@ export default function Home() {
    return (
       <main>
          <Header>
-            <nav>
+            <nav id="menuHorizontal">
                <ul>
                   <li> <Link to="products/blush">blush</Link> </li>
                   <li><Link to="products/bronzer">bronzer</Link></li>

@@ -4,7 +4,7 @@ export const Header = styled.header`
    width: 100%;
    height: 75px;
 
-   nav {
+   nav#menuHorizontal {
       width: 100%;
       height: 75px;
       display: flex;
@@ -37,7 +37,12 @@ export const Header = styled.header`
       }
    }
 
-   @media screen and (min-width: 992px){ nav { display: flex } }
+   @media screen and (min-width: 992px){ nav#menuHorizontal { display: flex } }
+   @media screen and (min-width: 0px) and (max-width: 991px){
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+   }
 `;
 
 export const Section = styled.section`

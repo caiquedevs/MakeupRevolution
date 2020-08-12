@@ -7,7 +7,7 @@ export const Header = styled.header`
    margin: 0 auto;
    display: flex;
 
-   nav{
+   nav#MenuHorozintal{
       width: calc(100% - 60px);
       height: 70px;
       position: fixed;

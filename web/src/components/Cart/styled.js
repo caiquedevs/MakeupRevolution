@@ -50,6 +50,16 @@ export const Cart = styled.div`
          }
       }
    }
+
+   @media screen and (min-width: 0px) and (max-width: 575px){
+      div#cartBody {
+         width: 100vw;
+         right: -30px;
+         max-height: 80vh;
+
+      }
+   }
+
 `;
 
 export const CartItem = styled.div`
@@ -104,6 +114,17 @@ export const CartItem = styled.div`
    span.price {
       margin-right: 14px;
       width: 20%;
+   }
+
+   @media screen and (min-width: 0px) and (max-width: 575px){
+      figure figcaption h1 {
+         font-size: 15px !important;
+      }
+
+      span.price {
+         margin-right: 0px;
+         width: 20%;
+      }
    }
 `;
 
